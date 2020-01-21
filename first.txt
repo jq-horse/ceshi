@@ -119,4 +119,5 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM IParam)
 	}
 	return DefWindowProc(hWnd, uMsg, wParam, IParam);
 }
-
+测试
+zaizai
