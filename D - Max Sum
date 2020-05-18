@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+int start1[100000],end1[100000],max1[100000];
+int a[100000];
+int main()
+{
+  int n,k1=0;
+  cin>>n;
+  int index1,max,start,end;
+   int k2=0;
+  for(int i=0;i<n;i++)
+  {
+    int N;
+    cin>>N;
+    for(int i1=0;i1<N;i1++)
+    cin>>a[i1];
+     k2=0;
+    index1=N-2;max=a[N-1];start=N-1;end=N-1;
+   int k3=0;
+    for(int j=0;j<N-1;j++)
+    {
+    
+      if(a[index1]>=0)
+      if(max+a[index1]<a[index1])
+      {
+        max=a[index1];
+        start=index1;end=index1;
+        index1--;
+        continue;
+      }
+      else
+      {
+        max+=a[index1];
+        start=index1;
+        index1--;
+        continue;
+      }
+      if(max<0&&a[index1]<0)
+      if(a[index1]>max)
+      {start=index1;end=index1;max=a[index1];index1--;continue;}
+      if(a[index1]<0)
+      {start1[k2]=start;end1[k2]=end;max1[k2++]=max;max+=a[index1--];continue;}
+
+
+    }
+    int answer[3];answer[0]=max;answer[1]=start;answer[2]=end;
+    for(int i2=0;i2<k2;i2++)
+    if(answer[0]<max1[i2])
+    {
+      answer[0]=max1[i2];
+      answer[1]=start1[i2];
+      answer[2]=end1[i2];
+    }
+
+     cout<<"Case "<<++k1<<":"<<endl;
+     if(i==n-1)
+     {
+     cout<<answer[0]<<" "<<++answer[1]<<" "<<++answer[2]<<endl;
+     }
+     else
+     {
+       cout<<answer[0]<<" "<<++answer[1]<<" "<<++answer[2]<<endl<<endl;
+     }
+  }
+   return 0;
+}
